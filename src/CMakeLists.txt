@@ -8,6 +8,7 @@ add_library(
     ISA/${ISA}/start.S
 )
 target_link_libraries(ISA PRIVATE platform)
+target_link_options(ISA PRIVATE ${CMAKE_C_LINK_FLAGS})
 
 add_library(
     check
@@ -27,7 +28,7 @@ add_custom_command(
     TARGET am_target POST_BUILD
     COMMAND ${CMAKE_OBJCOPY} -O binary am_target.elf am_target.bin
     COMMAND ${CMAKE_OBJCOPY} -O ihex am_target.elf am_target.hex
-    COMMAND ${CMAKE_OBJDUMP} -d am_target.elf > am_target.dump
+    COMMAND ${CMAKE_OBJDUMP} -D am_target.elf > am_target.dump
     COMMAND ${CMAKE_SIZE} am_target.elf
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
     COMMENT "Convert to binary and hex"

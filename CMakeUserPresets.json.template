@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "riscv_nemu",
+            "inherits": "debug",
+            "description": "CPU test build",
+            "cacheVariables": {
+                "ISA": "riscv",
+                "TARGET": "cpu-test/dummy",
+                "PLATFORM": "nemu"
+            }
+        }
+    ]
+}

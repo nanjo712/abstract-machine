@@ -2,7 +2,7 @@
 set(CMAKE_SYSTEM_NAME               Generic)
 set(CMAKE_SYSTEM_PROCESSOR          riscv32)
 
-set(COMPILER_PREFIX    riscv64-linux-gnu)
+set(COMPILER_PREFIX    riscv64-unknown-elf)
 
 # Specify the toolchain
 set(CMAKE_C_COMPILER   ${COMPILER_PREFIX}-gcc)
@@ -24,17 +24,17 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 set(SOC_FLAGS "-march=rv32im -mabi=ilp32")
 
 # Language settings 
-set(CMAKE_ASM_FLAGS "${SOC_FLAGS} -x assembler-with-cpp")
-set(CMAKE_C_FLAGS   "${SOC_FLAGS} -nostdlib -Wall -Werror -O2 -fno-asynchronous-unwind-tables")
+set(CMAKE_ASM_FLAGS "${SOC_FLAGS} -x assembler-with-cpp -fno-pic -O0")
+set(CMAKE_C_FLAGS   "${SOC_FLAGS} -nostdlib -Wall -Werror -O2 -mcmodel=medany -mstrict-align")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fno-pic -fno-builtin -fno-stack-protector -Wno-main -U_FORTIFY_SOURCE")
-set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fvisibility=hidden -mcmodel=medany -mstrict-align")
+set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fvisibility=hidden -fno-asynchronous-unwind-tables")
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fno-rtti -fno-exceptions -fno-threadsafe-statics ")  
 
 # Linker settings
-set(CMAKE_C_LINK_FLAGS    "-T ${CMAKE_CURRENT_SOURCE_DIR}/linker.ld -Wl,--defsym=_pmem_start=0x80000000 -Wl,--defsym=_entry_offset=0x0")
-set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -nostartfiles -Wl,--gc-sections")
+set(CMAKE_C_LINK_FLAGS    "-Wl,-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld -Wl,--defsym=_pmem_start=0x80000000 -Wl,--defsym=_entry_offset=0x0")
+set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -nostartfiles")
 set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-melf32lriscv")
-set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-print-memory-usage")
+set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-print-map")
 set(CMAKE_CXX_LINK_FLAGS  "${CMAKE_C_LINK_FLAGS}")      
 
 
