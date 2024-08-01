@@ -18,7 +18,7 @@ SECTIONS {
   } : data
   edata = .;
   _data = .;
-  .bss : {
+  .bss : {  
 	_bss_start = .;
     *(.bss*)
     *(.sbss*)

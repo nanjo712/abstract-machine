@@ -24,8 +24,8 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 set(SOC_FLAGS "-march=rv32im -mabi=ilp32")
 
 # Language settings 
-set(CMAKE_ASM_FLAGS "${SOC_FLAGS} -x assembler-with-cpp -fno-pic -O0")
-set(CMAKE_C_FLAGS   "${SOC_FLAGS} -L-O2 -static -Wall -Werror -mcmodel=medany -mstrict-align")
+set(CMAKE_ASM_FLAGS "${SOC_FLAGS} -fno-pic -O2")
+set(CMAKE_C_FLAGS   "${SOC_FLAGS} -O2 -static -nostdlib -Wall -Werror -mcmodel=medany -mstrict-align")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fno-pic -fno-builtin -fno-stack-protector -Wno-main -U_FORTIFY_SOURCE")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fvisibility=hidden -fno-asynchronous-unwind-tables")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fdata-sections -ffunction-sections")
@@ -33,10 +33,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -ffreestanding -fno-rtti -fno-exceptions -
 
 # Linker settings
 set(CMAKE_C_LINK_FLAGS    "-Wl,-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld -Wl,--defsym=_pmem_start=0x80000000 -Wl,--defsym=_entry_offset=0x0")
+set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-e _start -Wl,-build-id=none")
 set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -nostartfiles -Wl,--gc-sections")
-set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-melf32lriscv")
+set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-melf32lriscv")    
 set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-print-memory-usage")
-set(CMAKE_CXX_LINK_FLAGS  "${CMAKE_C_LINK_FLAGS}")      
+set(CMAKE_CXX_LINK_FLAGS  "${CMAKE_C_LINK_FLAGS} ")
 
 
 

@@ -1,8 +1,9 @@
 #include "check/check.h"
 
-long long mul(long long a, long long b) {
-  long long ans = a * b;
-  return ans;
+long long mul(long long a, long long b)
+{
+    long long ans = a * b;
+    return ans;
 }
 
 int test_data[] = {0xaeb1c2aa, 0x4500ff2b, 0x877190af, 0x11f42438};
@@ -15,16 +16,19 @@ long long ans[] = {0x19d29ab9db1a18e4LL, 0xea15986d3ac3088eLL,
 #define LENGTH(arr) (sizeof(arr) / sizeof(arr[0]))
 #define NR_DATA LENGTH(test_data)
 
-int main() {
-  int i, j, ans_idx = 0;
-  for (i = 0; i < NR_DATA; i++) {
-    for (j = i; j < NR_DATA; j++) {
-      check(ans[ans_idx++] == mul(test_data[i], test_data[j]));
+int main()
+{
+    int i, j, ans_idx = 0;
+    for (i = 0; i < NR_DATA; i++)
+    {
+        for (j = i; j < NR_DATA; j++)
+        {
+            check(ans[ans_idx++] == mul(test_data[i], test_data[j]));
+        }
+        check(j == NR_DATA);
     }
-    check(j == NR_DATA);
-  }
 
-  check(i == NR_DATA);
+    check(i == NR_DATA);
 
-  return 0;
+    return 0;
 }
