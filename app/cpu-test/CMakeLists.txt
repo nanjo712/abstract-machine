@@ -43,7 +43,7 @@ foreach(target ${CPU_TEST_TARGET_LIST})
         ${target_name}
         ${target}
     )
-    target_link_libraries(${target_name} PRIVATE check platform ISA)
+    target_link_libraries(${target_name} PRIVATE utils platform ISA)
     add_custom_command(
         TARGET ${target_name} POST_BUILD
         COMMAND ${CMAKE_OBJCOPY} -S --set-section-flags .bss=alloc,contents -O binary ${target_name}.elf ${target_name}.bin

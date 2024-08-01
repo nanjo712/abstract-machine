@@ -25,7 +25,7 @@ set(SOC_FLAGS "-march=rv32im -mabi=ilp32")
 
 # Language settings 
 set(CMAKE_ASM_FLAGS "${SOC_FLAGS} -x assembler-with-cpp -fno-pic -O0")
-set(CMAKE_C_FLAGS   "${SOC_FLAGS} -O2 -static -Wall -Werror -mcmodel=medany -mstrict-align")
+set(CMAKE_C_FLAGS   "${SOC_FLAGS} -L-O2 -static -Wall -Werror -mcmodel=medany -mstrict-align")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fno-pic -fno-builtin -fno-stack-protector -Wno-main -U_FORTIFY_SOURCE")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fvisibility=hidden -fno-asynchronous-unwind-tables")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fdata-sections -ffunction-sections")

@@ -11,10 +11,11 @@ target_link_libraries(ISA PRIVATE platform)
 target_link_options(ISA PRIVATE ${CMAKE_C_LINK_FLAGS})
 
 add_library(
-    check
+    utils
     check/check.c
+    klib/int64.c
 )
-target_include_directories(check PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
-target_link_libraries(check PRIVATE platform)
+target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+target_link_libraries(utils PRIVATE platform)
 
 
