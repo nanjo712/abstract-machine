@@ -15,3 +15,4 @@ if (ISA STREQUAL riscv)
 endif()
 
 add_subdirectory(src)
+add_subdirectory(app)

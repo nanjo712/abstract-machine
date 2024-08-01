@@ -23,7 +23,7 @@ set(
     ./quick-sort.c
     ./dummy.c
     ./add-longlong.c
-    # ./mersenne.c
+    ./mersenne.c
     ./mul-longlong.c
     ./shift.c
     ./goldbach.c

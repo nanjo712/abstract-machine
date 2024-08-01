@@ -17,6 +17,4 @@ add_library(
 target_include_directories(check PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include)
 target_link_libraries(check PRIVATE platform)
 
-add_subdirectory(target)
-
 
