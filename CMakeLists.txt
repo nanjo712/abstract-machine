@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # cache variable ISA
 set(ISA riscv CACHE STRING "Instruction Set Architecture")
-set(TARGET cpu-test/dummy CACHE STRING "Target")
 set(PLATFORM nemu CACHE STRING "Platform")
 
 if (ISA STREQUAL riscv)
