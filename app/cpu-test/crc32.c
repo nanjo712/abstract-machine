@@ -1,10 +1,9 @@
 /* from http://rosettacode.org/wiki/CRC-32#C */
 
-#include "check/check.h"
+#include <stddef.h>
+#include <stdint.h>
 
-typedef unsigned int uint32_t;
-typedef unsigned char uint8_t;
-typedef unsigned int size_t;
+#include "check/check.h"
 
 #define STR "The quick brown fox jumps over the lazy dog"
 #define STRLEN (sizeof(STR) - 1)

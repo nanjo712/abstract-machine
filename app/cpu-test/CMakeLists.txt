@@ -11,7 +11,7 @@ set(
     ./wanshu.c
     ./to-lower-case.c
     ./leap-year.c
-    # ./hello-str.c
+    ./hello-str.c
     ./load-store.c
     ./unalign.c
     ./recursion.c
@@ -30,7 +30,7 @@ set(
     ./select-sort.c
     ./switch.c
     ./fib.c
-    # ./string.c
+    ./string.c
     ./if-else.c
     ./max.c
     ./prime.c
