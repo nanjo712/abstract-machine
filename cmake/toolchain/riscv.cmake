@@ -14,6 +14,7 @@ set(CMAKE_OBJDUMP      ${COMPILER_PREFIX}-objdump)
 set(CMAKE_LINKER       ${COMPILER_PREFIX}-ld)
 set(CMAKE_SIZE         ${COMPILER_PREFIX}-size)
 
+# newlib settings
 include_directories(/usr/local/riscv64-unknown-elf/include)
 link_directories(/usr/local/riscv64-unknown-elf/lib/rv32im/ilp32)      
 
