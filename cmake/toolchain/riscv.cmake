@@ -39,7 +39,6 @@ set(CMAKE_C_LINK_FLAGS    "-Wl,-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld -Wl,--def
 set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-e _start -Wl,-build-id=none")
 set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -nostartfiles -Wl,--gc-sections")
 set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-melf32lriscv")    
-set(CMAKE_C_LINK_FLAGS    "${CMAKE_C_LINK_FLAGS} -Wl,-print-memory-usage")
 set(CMAKE_CXX_LINK_FLAGS  "${CMAKE_C_LINK_FLAGS} ")
 
 
