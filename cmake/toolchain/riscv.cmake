@@ -2,7 +2,7 @@
 set(CMAKE_SYSTEM_NAME               Generic)
 set(CMAKE_SYSTEM_PROCESSOR          riscv32)
 
-set(COMPILER_PREFIX    riscv64-linux-gnu)
+set(COMPILER_PREFIX    riscv64-unknown-elf)
 
 # Specify the toolchain
 set(CMAKE_C_COMPILER   ${COMPILER_PREFIX}-gcc)
@@ -14,7 +14,10 @@ set(CMAKE_OBJDUMP      ${COMPILER_PREFIX}-objdump)
 set(CMAKE_LINKER       ${COMPILER_PREFIX}-ld)
 set(CMAKE_SIZE         ${COMPILER_PREFIX}-size)
 
-set(CMAKE_EXECUTABLE_SUFFIX_ASM  ".elf")
+include_directories(/usr/local/riscv64-unknown-elf/include)
+link_directories(/usr/local/riscv64-unknown-elf/lib/rv32im/ilp32)      
+
+set(CMAKE_EXECUTABLE_SUFFIX_ASM  ".elf")    
 set(CMAKE_EXECUTABLE_SUFFIX_C    ".elf")
 set(CMAKE_EXECUTABLE_SUFFIX_CXX  ".elf")
 
@@ -25,7 +28,7 @@ set(SOC_FLAGS "-march=rv32im -mabi=ilp32")
 
 # Language settings 
 set(CMAKE_ASM_FLAGS "${SOC_FLAGS} -fno-pic -O2")
-set(CMAKE_C_FLAGS   "${SOC_FLAGS} -O2 -static -nostdlib -Wall -Werror -mcmodel=medany -mstrict-align")
+set(CMAKE_C_FLAGS   "${SOC_FLAGS} -O2 -static -Wall -Werror -mcmodel=medany -mstrict-align")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fno-pic -fno-builtin -fno-stack-protector -Wno-main -U_FORTIFY_SOURCE")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fvisibility=hidden -fno-asynchronous-unwind-tables")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fdata-sections -ffunction-sections")
