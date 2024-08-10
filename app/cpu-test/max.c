@@ -1,13 +1,17 @@
 #include "check/check.h"
 
-int max(int x, int y) {
-  int z;
-  if (x > y) {
-    z = x;
-  } else {
-    z = y;
-  }
-  return z;
+int max(int x, int y)
+{
+    int z;
+    if (x > y)
+    {
+        z = x;
+    }
+    else
+    {
+        z = y;
+    }
+    return z;
 }
 
 int test_data[] = {0,          1,          2,          0x7fffffff,
@@ -28,16 +32,19 @@ int ans[] = {
 #define LENGTH(arr) (sizeof(arr) / sizeof(arr[0]))
 #define NR_DATA LENGTH(test_data)
 
-int main() {
-  int i, j, ans_idx = 0;
-  for (i = 0; i < NR_DATA; i++) {
-    for (j = 0; j < NR_DATA; j++) {
-      check(max(test_data[i], test_data[j]) == ans[ans_idx++]);
+int main()
+{
+    int i, j, ans_idx = 0;
+    for (i = 0; i < NR_DATA; i++)
+    {
+        for (j = 0; j < NR_DATA; j++)
+        {
+            check(max(test_data[i], test_data[j]) == ans[ans_idx++]);
+        }
+        check(j == NR_DATA);
     }
-    check(j == NR_DATA);
-  }
 
-  check(i == NR_DATA);
+    check(i == NR_DATA);
 
-  return 0;
+    return 0;
 }

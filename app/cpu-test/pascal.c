@@ -10,26 +10,30 @@ int ans[] = {1,        30,        435,       4060,      27405,     142506,
              593775,   142506,    27405,     4060,      435,       30,
              1};
 
-int main() {
-  int i, j;
-  int t0, t1;
-  a[0] = a[1] = 1;
+int main()
+{
+    int i, j;
+    int t0, t1;
+    a[0] = a[1] = 1;
 
-  for (i = 2; i < N; i++) {
-    t0 = 1;
-    for (j = 1; j < i; j++) {
-      t1 = a[j];
-      a[j] = t0 + t1;
-      t0 = t1;
+    for (i = 2; i < N; i++)
+    {
+        t0 = 1;
+        for (j = 1; j < i; j++)
+        {
+            t1 = a[j];
+            a[j] = t0 + t1;
+            t0 = t1;
+        }
+        a[i] = 1;
     }
-    a[i] = 1;
-  }
 
-  for (j = 0; j < N; j++) {
-    check(a[j] == ans[j]);
-  }
+    for (j = 0; j < N; j++)
+    {
+        check(a[j] == ans[j]);
+    }
 
-  check(j == N);
+    check(j == N);
 
-  return 0;
+    return 0;
 }

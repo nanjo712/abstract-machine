@@ -13,11 +13,13 @@ volatile char ans[] = {
     105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119,
     120, 121, 122, 123, 124, 125, 126, 127};
 
-int main() {
-  int i;
-  for (i = 0; i < 128; i++) {
-    check(to_lower_case(i) == ans[i]);
-  }
+int main()
+{
+    int i;
+    for (i = 0; i < 128; i++)
+    {
+        check(to_lower_case(i) == ans[i]);
+    }
 
-  return 0;
+    return 0;
 }

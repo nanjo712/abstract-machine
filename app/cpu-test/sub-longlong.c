@@ -1,8 +1,9 @@
 #include "check/check.h"
 
-long long sub(long long a, long long b) {
-  long long c = a - b;
-  return c;
+long long sub(long long a, long long b)
+{
+    long long c = a - b;
+    return c;
 }
 
 long long test_data[] = {0,
@@ -81,13 +82,16 @@ long long ans[] = {0LL,
 #define LENGTH(arr) (sizeof(arr) / sizeof(arr[0]))
 #define NR_DATA LENGTH(test_data)
 
-int main() {
-  int i, j, ans_idx = 0;
-  for (i = 0; i < NR_DATA; i++) {
-    for (j = 0; j < NR_DATA; j++) {
-      check(sub(test_data[i], test_data[j]) == ans[ans_idx++]);
+int main()
+{
+    int i, j, ans_idx = 0;
+    for (i = 0; i < NR_DATA; i++)
+    {
+        for (j = 0; j < NR_DATA; j++)
+        {
+            check(sub(test_data[i], test_data[j]) == ans[ans_idx++]);
+        }
     }
-  }
 
-  return 0;
+    return 0;
 }

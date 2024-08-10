@@ -16,26 +16,31 @@ unsigned lwlr_ans[] = {0xbc025800, 0x7fff4a, 0xcd810080, 0xffffab};
 
 #define LENGTH(arr) (sizeof(arr) / sizeof(arr[0]))
 
-int main() {
-  unsigned i;
+int main()
+{
+    unsigned i;
 
-  for (i = 0; i < LENGTH(mem); i++) {
-    check((short)mem[i] == lh_ans[i]);
-  }
+    for (i = 0; i < LENGTH(mem); i++)
+    {
+        check((short)mem[i] == lh_ans[i]);
+    }
 
-  for (i = 0; i < LENGTH(mem); i++) {
-    check(mem[i] == lhu_ans[i]);
-  }
+    for (i = 0; i < LENGTH(mem); i++)
+    {
+        check(mem[i] == lhu_ans[i]);
+    }
 
-  for (i = 0; i < ((LENGTH(mem) / 2) - 1); i++) {
-    unsigned x = ((unsigned *)((void *)mem + 1))[i];
-    check(x == lwlr_ans[i]);
-  }
+    for (i = 0; i < ((LENGTH(mem) / 2) - 1); i++)
+    {
+        unsigned x = ((unsigned *)((void *)mem + 1))[i];
+        check(x == lwlr_ans[i]);
+    }
 
-  for (i = 0; i < LENGTH(mem); i++) {
-    mem[i] = ~(1 << (2 * i + 1));
-    check(mem[i] == sh_ans[i]);
-  }
+    for (i = 0; i < LENGTH(mem); i++)
+    {
+        mem[i] = ~(1 << (2 * i + 1));
+        check(mem[i] == sh_ans[i]);
+    }
 
-  return 0;
+    return 0;
 }
